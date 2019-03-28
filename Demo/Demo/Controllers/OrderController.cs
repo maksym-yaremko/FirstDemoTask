@@ -110,11 +110,6 @@ namespace Demo.Controllers
         {
             var order =await unitOfWork.OrderRepository.GetById(id);
             unitOfWork.OrderRepository.Delete(id);
-
-            
-            unitOfWork.UserRepository.Delete(order.UserId);
-
-
             unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }

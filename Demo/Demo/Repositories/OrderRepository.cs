@@ -39,7 +39,8 @@ namespace Demo.Repositories
 
         public void Update(Order item)
         {
-            context.Entry(item).State = EntityState.Modified;
+            context.Update(item);
+            context.Entry(item).Property(x => x.Date).IsModified = false;  
         }
     }
 }
