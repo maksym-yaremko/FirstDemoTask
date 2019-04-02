@@ -12966,11 +12966,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\maksy\\source\\repos\\Demo\\Demo\\Demo.csproj",
+      "projectUniqueName": "C:\\Users\\maksy\\source\\repos\\FirstDemoTask\\Demo\\Demo\\Demo.csproj",
       "projectName": "Demo",
-      "projectPath": "C:\\Users\\maksy\\source\\repos\\Demo\\Demo\\Demo.csproj",
+      "projectPath": "C:\\Users\\maksy\\source\\repos\\FirstDemoTask\\Demo\\Demo\\Demo.csproj",
       "packagesPath": "C:\\Users\\maksy\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\maksy\\source\\repos\\Demo\\Demo\\obj\\",
+      "outputPath": "C:\\Users\\maksy\\source\\repos\\FirstDemoTask\\Demo\\Demo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

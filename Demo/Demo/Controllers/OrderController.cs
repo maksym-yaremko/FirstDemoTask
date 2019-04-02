@@ -25,7 +25,6 @@ namespace Demo.Controllers
             return View(shopDbContext);
         }
 
-        //// GET: Order/Details/5
         public IActionResult Details(int id)
         {
             var order = unitOfWork.OrderRepository.GetList().FirstOrDefault(m => m.Id == id);
@@ -59,7 +58,6 @@ namespace Demo.Controllers
             return View(order);
         }
 
-        // GET: Order/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
             Order order =await unitOfWork.OrderRepository.GetById(id);
@@ -106,17 +104,11 @@ namespace Demo.Controllers
 
         [HttpPost]
         [ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
-            var order =await unitOfWork.OrderRepository.GetById(id);
             unitOfWork.OrderRepository.Delete(id);
             unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
-
-        //private bool OrderExists(int id)
-        //{
-        //    return unitOfWork.OrderRepository.Any(e => e.Id == id);
-        //}
     }
 }
