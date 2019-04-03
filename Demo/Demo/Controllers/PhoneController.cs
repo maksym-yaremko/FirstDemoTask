@@ -33,13 +33,9 @@ namespace Demo.Controllers
         [HttpPost]
         public IActionResult Create(Phone phone)
         {
-            if (ModelState.IsValid)
-            {
-                unitOfWork.PhoneRepository.Create(phone);
-                unitOfWork.Save();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(phone);
+            unitOfWork.PhoneRepository.Create(phone);
+            unitOfWork.Save();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Edit(int id)
@@ -53,26 +49,17 @@ namespace Demo.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(int id,Phone phone)
+        public IActionResult Edit(Phone phone)
         {
-            if (id != phone.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                    unitOfWork.PhoneRepository.Update(phone);
-                    unitOfWork.Save();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(phone);
+            unitOfWork.PhoneRepository.Update(phone);
+            unitOfWork.Save();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Delete(int id)
         {
 
-            var phone = unitOfWork.PhoneRepository.GetList().FirstOrDefault(m => m.Id == id);
+            var phone = unitOfWork.PhoneRepository.GetById(id);
             if (phone == null)
             {
                 return NotFound();
@@ -81,7 +68,8 @@ namespace Demo.Controllers
             return View(phone);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
+        [ActionName("Delete")]
         public IActionResult DeleteConfirmed(int id)
         {
             unitOfWork.PhoneRepository.Delete(id);
@@ -91,7 +79,7 @@ namespace Demo.Controllers
 
         public IActionResult Details(int id)
         {
-            var order = unitOfWork.PhoneRepository.GetList().FirstOrDefault(m => m.Id == id);
+            var order = unitOfWork.PhoneRepository.GetById(id);
             if (order == null)
             {
                 return NotFound();

@@ -38,7 +38,7 @@ namespace Demo.Repositories
 
         public void Update(Phone item)
         {
-            context.Entry(item).State = EntityState.Modified;
+            context.Update(item);
         }
     }
 }

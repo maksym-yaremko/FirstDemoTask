@@ -27,7 +27,7 @@ namespace Demo.Controllers
 
         public IActionResult Details(int id)
         {
-            var order = unitOfWork.OrderRepository.GetList().FirstOrDefault(m => m.Id == id);
+            var order = unitOfWork.OrderRepository.GetById(id);
             if (order == null)
             {
                 return NotFound();
@@ -35,27 +35,19 @@ namespace Demo.Controllers
             return View(order);
         }
 
-        // GET: Order/Create
         public IActionResult Create()
         {
             ViewData["PhoneId"] = new SelectList(unitOfWork.PhoneRepository.GetList(), "Id", "Name");
             return View();
         }
 
-        //// POST: Order/Create
         [HttpPost]
         public IActionResult Create(Order order)
         {
-            order.Date = DateTime.Now;
-
-            if (ModelState.IsValid)
-            {
-                unitOfWork.OrderRepository.Create(order);
-                unitOfWork.Save();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["PhoneId"] = new SelectList(unitOfWork.PhoneRepository.GetList(), "Id", "Company", order.PhoneId);
-            return View(order);
+           order.Date = DateTime.Now;
+           unitOfWork.OrderRepository.Create(order);
+           unitOfWork.Save();
+           return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Edit(int id)
@@ -65,35 +57,23 @@ namespace Demo.Controllers
             {
                 return NotFound();
             }
-            ViewData["PhoneId"] = new SelectList(unitOfWork.PhoneRepository.GetList(), "Id", "Name", order.PhoneId);
+            ViewData["PhoneId"] = new SelectList(unitOfWork.PhoneRepository.GetList(), "Id", "Name");
 
             return View(order);
         }
 
         [HttpPost]
-        public IActionResult Edit(int id, Order order)
+        public IActionResult Edit(Order order)
         {
-
-            if (id != order.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                unitOfWork.OrderRepository.Update(order);
-                unitOfWork.Save();
-
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["PhoneId"] = new SelectList(unitOfWork.PhoneRepository.GetList(), "Id", "Name", order.PhoneId);
-            return View(order);
+            unitOfWork.OrderRepository.Update(order);
+            unitOfWork.Save();
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Delete(int id)
         {
 
-            var order = unitOfWork.OrderRepository.GetList().FirstOrDefault(m => m.Id == id);
+            var order = unitOfWork.OrderRepository.GetById(id);
             if (order == null)
             {
                 return NotFound();
