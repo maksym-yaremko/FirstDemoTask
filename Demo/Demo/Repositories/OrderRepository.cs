@@ -27,9 +27,9 @@ namespace Demo.Repositories
             context.Orders.Remove(order);
         }
 
-        public async Task<Order> GetById(int id)
+        public Order GetById(int id)
         {
-            return await context.Orders.Include(o => o.User).Include(o => o.Phone).SingleOrDefaultAsync(o=>o.Id==id);
+            return context.Orders.Include(o => o.User).Include(o => o.Phone).FirstOrDefault(o=>o.Id==id);
         }
 
         public IEnumerable<Order> GetList()

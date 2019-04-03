@@ -26,9 +26,9 @@ namespace Demo.Repositories
             context.Phones.Remove(phone);
         }
 
-        public async Task<Phone> GetById(int id)
+        public Phone GetById(int id)
         {
-            return await  context.Phones.FindAsync(id);
+            return context.Phones.Find(id);
         }
 
         public IEnumerable<Phone> GetList()

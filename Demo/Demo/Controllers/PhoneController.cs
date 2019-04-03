@@ -88,5 +88,15 @@ namespace Demo.Controllers
             unitOfWork.Save();
             return RedirectToAction(nameof(Index));
         }
+
+        public IActionResult Details(int id)
+        {
+            var order = unitOfWork.PhoneRepository.GetList().FirstOrDefault(m => m.Id == id);
+            if (order == null)
+            {
+                return NotFound();
+            }
+            return View(order);
+        }
     }
 }

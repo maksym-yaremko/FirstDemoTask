@@ -27,9 +27,9 @@ namespace Demo.Repositories
             context.Users.Remove(user);
         }
 
-        public async Task<User> GetById(int id)
+        public User GetById(int id)
         {
-            return await context.Users.FindAsync(id);
+            return context.Users.Find(id);
         }
 
         public IEnumerable<User> GetList()

@@ -58,9 +58,9 @@ namespace Demo.Controllers
             return View(order);
         }
 
-        public async Task<IActionResult> Edit(int id)
+        public IActionResult Edit(int id)
         {
-            Order order =await unitOfWork.OrderRepository.GetById(id);
+            Order order = unitOfWork.OrderRepository.GetById(id);
             if (order == null)
             {
                 return NotFound();

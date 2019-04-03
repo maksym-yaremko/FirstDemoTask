@@ -49,8 +49,6 @@ C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Demo
 C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.TagHelpers.input.cache
 C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.TagHelpers.output.cache
 C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Demo.RazorCoreGenerate.cache
-C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Razor\Views\Order\Create.g.cshtml.cs
 C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Razor\Views\Order\Delete.g.cshtml.cs
 C:\Users\maksy\source\repos\FirstDemoTask\Demo\Demo\obj\Debug\netcoreapp2.2\Razor\Views\Order\Details.g.cshtml.cs
